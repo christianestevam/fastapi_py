@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "fast-zero"
+name = "fastapi_py"
 version = "0.1.0"
 description = ""
 authors = ["Christian Estevam <christianestevamb@gmail.com>"]
 readme = "README.md"
-packages = [{include = "fast_zero"}]
+packages = [{include = "fastapi_py"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"

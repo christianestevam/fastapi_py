@@ -1,8 +1,14 @@
-from fastapi import FastAPI
-emafrom fastapi_py.schemas import UserSchema
+from fastapi_py.schemas import UserSchema, UserPublic, UserDB
 
-# Código da nossa rota de olá mundo omitido
 
-@app.post('/users/', status_code=201)
+
+database = []  
+
+
+@app.post('/users/', status_code=201, response_model=UserPublic)
 def create_user(user: UserSchema):
-    return user
+    user_with_id = UserDB(**user.model_dump(), id=len(database) + 1)
+
+    database.append(user_with_id)
+
+    return UserPublic(**user_with_id.model_dump())
